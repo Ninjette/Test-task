@@ -1,5 +1,71 @@
 // Tablet
 @media (max-width: 992px) {
+	.header{
+		&__wrap{
+			width: 100%;
+		}
+	}
+	.logo{
+		padding-left: 10px;
+	}
+	.form-wrap{
+		display: none;
+		float: none;
+		background-color: #f2f2f2;
+	}
+	.search-toggle{
+		width: 44px;
+		font-size: 18px;
+		text-align: center;
+		cursor: pointer;
+		display: inline-block;
+		vertical-align: middle;
+		padding: 0 10px;
+		line-height: 48px;
+		color: #949494;
+		text-decoration: none;
+		&.active{
+			background-color: #f2f2f2;
+		}
+	}
+	.form-search{
+		margin-right: 0;
+		margin-top: 0;
+		border: none;
+		padding: 0;
+		&__inner-wrap{
+			padding:20px;
+			position: relative;
+			width: 70%;
+			margin:auto;
+		}
+		&__input{
+			width: 100%;
+		}
+		&__submit-wrap{
+			right: 20px;
+		}
+		&__submit{
+			width: 33px;
+			top: 20px;
+			bottom: 20px;
+			&:hover ~ .form-search__icon{
+				color: #fff;
+				background-color: #0060ac;
+			}
+		}
+		&__icon{
+			top: 20px;
+			bottom: 20px;
+			margin: 0;
+			line-height: 34px;
+			width: 33px;
+			text-align: center;
+			color: #fff;
+			background-color: #0078D7;
+		}
+	}
+
 	.sign-up{
 		&__form{
 			max-width: 768px;

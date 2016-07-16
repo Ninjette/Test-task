@@ -20,34 +20,37 @@ $(document).ready(function(){
 		}
 	});
 
-	dropdownDefinitionList.on("mouseover", function(event){
-		// preventAction = true;
-		// if(preventAction){
-			event.preventDefault();
-			dropdownDefinition.css('display','none');
-			$(this).children(dropdownDefinition).css('display','block');
-		// };
-	});
+	showDropdownDefinition = function(parent){
+		dropdownDefinition.css('display','none');
+		parent.children(dropdownDefinition).css('display','block');
+	}
+	// dropdownDefinitionList.on("mouseover", function(event){
+	// 	// preventAction = true;
+	// 	// if(preventAction){
+	// 		// event.preventDefault();
+	// 		showDropdownDefinition($(this));
+	// 	// };
+	// });
 
-	$('.dropdown__link').on('click', function(){
+	// $('.dropdown__link').on('click', function(){
 		//disable event.preventDefault() which was created on higher level
 		// preventAction = false;
-	});
+	// });
 
 
 
+	//make height of dropdowns columns equal
+	// dropdownTitle.on('mouseover' , function(){
+	// 	var heightOfDefinition = $(this).siblings(dropdownDefinition).height(),
+	// 		parentDropdown =     $(this).parent().parent();
 
-	dropdownTitle.on('mouseover' , function(){
-		var heightOfDefinition = $(this).siblings(dropdownDefinition).height(),
-			parentDropdown =     $(this).parent().parent();
-
-		if (parentDropdown.height() < heightOfDefinition){
-			parentDropdown.height(heightOfDefinition-8); // 8px = padding of dropdown
-		}
-		else{
-			parentDropdown.css('height','auto');
-		}
-	});
+	// 	if (parentDropdown.height() < heightOfDefinition){
+	// 		parentDropdown.height(heightOfDefinition-8); // 8px = padding of dropdown
+	// 	}
+	// 	else{
+	// 		parentDropdown.css('height','auto');
+	// 	}
+	// });
 
 
 
@@ -67,11 +70,75 @@ $(document).ready(function(){
 		closeDropdown(linksArray[i]);
 	};
 
+	//search-toggle
+	$('.search-toggle').on('click', function(){
+		$('.form-wrap').toggle();
+		$(this).toggleClass('active');
+	});
+	
+	//nav toggle
+	$('.nav-icon').on('click', function(){
+		$(this).toggleClass('open');
+		$('.nav').toggle().toggleClass('active');
+	});
+
+
 	//FOOTER
 	$('.column__subtitle').on('click', function(){
 		$(this).toggleClass('active');
 		$(this).siblings('.column__list').toggleClass('active');
 	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//working space
+	var switcher = true;
+
+	if($(window).width() < 768){
+		console.log('less than 768');
+		if (switcher) {
+			console.log('switcher = true');
+			//---------------------------------
+			switcher = false;
+		};
+	}
+	else if($(window).width() > 768){
+		console.log('more than 768');
+		if (switcher) {
+			console.log('switcher = false');
+			//---------------------------------
+			switcher = false;
+			dropdownDefinitionList.on("mouseover", function(event){
+				showDropdownDefinition($(this));
+			});
+
+			//make height of dropdowns columns equal
+			dropdownTitle.on('mouseover' , function(){
+				var heightOfDefinition = $(this).siblings(dropdownDefinition).height(),
+					parentDropdown =     $(this).parent().parent();
+
+				if (parentDropdown.height() < heightOfDefinition){
+					parentDropdown.height(heightOfDefinition-8); // 8px = padding of dropdown
+				}
+				else{
+					parentDropdown.css('height','auto');
+				}
+			});
+		};
+	}
 });
 
 
@@ -97,3 +164,11 @@ $(document).ready(function(){
 // }
 
 //- stack overflow disable jQuery's preventDefault for children
+
+
+
+
+
+
+
+

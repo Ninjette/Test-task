@@ -1,19 +1,27 @@
 .header{
 	box-shadow: 0 1px 0 rgba(0,0,0,0.1);
 	font-family: $primaryFont;
+	&__wrap{
+		width: 90%;
+		margin:auto;
+	}
 }
 .logo{
 	display: inline-block;
 	vertical-align: middle;
+	line-height: 48px;
 	&__media{
 		width: 108px;
 		height: 23px;
 	}
 }
-
+.nav-icon{
+	display: none;
+}
 .nav{
 	display: inline-block;
 	vertical-align: middle;
+	margin-left: 14px;
 	&__list{
 		margin: 0;
 		padding: 0;
@@ -26,8 +34,9 @@
 	&__link{
 		display: block;
 		color: #2F2F2F;
-		padding: 0 1.5em;
+		padding: 0 23px;
 		line-height: 48px;
+		letter-spacing: 0.2px;
 		transition: background-color ease-out .5s;
 		&:hover,
 		&:focus,
@@ -50,25 +59,29 @@
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
 			vertical-align: middle;
+
 			font-size: 7px;
-			margin-left: 3px;
+			margin-left: 6px;
 		}
 	}
 }
-.form-search{
+.form-wrap{
 	float: right;
-	position: relative;
-	margin: 7px 5px 0 0;
 	display: inline-block;
+}
+.form-search{
+	position: relative;
+	margin: 6px 15px 0 0;
 	vertical-align: middle;
 	padding: 0 5px 0 0;
 	border: 1px solid #A9A9A9;
 	&__input{
-		width: 244px;
+		width: 266px;
 		padding: 0 10px;
-		height: 36px;
+		height: 34px;
 		color: #000;
 		border: none;
+		font-size: 15px;
 		&:focus{
 			outline: 0;
 		}
@@ -118,12 +131,14 @@
 	display: inline-block;
 	vertical-align: middle;
 	padding: 0 10px;
-	line-height: 48px;
+	line-height: 46px;
+	transition: background-color 0.25s ease-out;
 	&:hover,
 	&:focus{
 		color: #0078d7;
 		text-decoration: none;
 		background-color: #f2f2f2;
+		transition: background-color 0s;
 	}
 	&__icon{
 		font-size: 17px;
@@ -134,7 +149,7 @@
 		color: #2F2F2F;
 		display: inline-block;
 		vertical-align: middle;
-		font-size: 12px;
+		font-size: 11px;
 		margin-left: 3px;
 	}
 }
@@ -142,16 +157,20 @@
 	float: right;
 	color: #000;
 	line-height: 48px;
-	padding: 0 10px;
+	padding: 0 13px;
 	max-width: 160px;
 	display: inline-block;
 	vertical-align: top;
 	color: #505050;
+	letter-spacing: -0.4px;
+	font-size: 13px;
+	transition: background-color 0.25s ease-out;
 	&:hover,
 	&:focus{
 		color: #0078d7;
 		text-decoration: none;
 		background-color: #f2f2f2;
+		transition: background-color 0s;
 	}
 }
 
