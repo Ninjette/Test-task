@@ -1,0 +1,30 @@
+// Tablet
+@media (max-width: 992px) {
+	.sign-up{
+		&__form{
+			max-width: 768px;
+			padding: 0 10px;
+		}
+		&__input{
+			width: 100%;
+			margin-right: 0;
+		}
+		&__fieldsets{
+			width: 100%;
+			margin-bottom: 35px;
+		}
+		&__fieldset{
+			width: 32%;
+			margin: 0 1%;
+		}
+		&__fieldset:first-child{
+			margin-left: 0;
+		}
+		&__fieldset:last-child{
+			margin-right: 0;
+		}
+		&__submit{
+			padding: 20px 11px;
+		}
+	}
+}

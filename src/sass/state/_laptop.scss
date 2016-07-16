@@ -1,0 +1,27 @@
+// Laptop
+@media (max-width: 1199px) {
+	.banner{
+		&__title{
+			max-width: 350px;
+			font-size: 31px;
+		}
+		&__subtitle{
+			max-width: 300px;
+			font-size: 16px;
+			padding-bottom: 23px;
+		}
+		&__btn{
+			font-size: 16px;
+			padding: 14px 40px;
+		}
+	}
+	.sign-up{
+		&__input{
+			width: 222px;
+			font-size: 15px;
+		}
+		&__submit{
+			padding: 20px;
+		}
+	}
+}

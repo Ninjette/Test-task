@@ -1,0 +1,119 @@
+.footer{
+	font-family:$thirdlyFont;
+	background-color: #f2f2f2;
+	color: $secondaryColor;
+}
+.footer-wrap{
+	margin: 0 auto;
+	padding: 36px 22px 0;
+	max-width: 980px;
+	box-sizing: content-box;
+}
+.column{
+	width: 20%;
+	float: left;
+	&__subtitle{
+		margin: 0 0 5px;
+		font-weight: 600;
+		font-size: 12px;
+		color: $primaryColor;
+	}
+	&__list{
+		padding: 0;
+		// margin: 0;
+		margin:0 20px 0 0;
+	}
+	&__item{
+		list-style: none;
+		line-height: 1.43;
+	}
+	&__link{
+		font-size: 11px;
+		letter-spacing: 0.4px;
+		color: $secondaryColor;
+		&:hover,
+		&:focus{
+			color: $primaryColor;
+		}
+	}
+	&__section ~ &__section{
+		padding-top: 22px;
+	}
+}
+
+.basement{
+	padding: 19px 0 25px;
+	&__headline{
+		line-height: 1.9;
+		letter-spacing: -0.1px;
+		font-size: 12px;
+		border-bottom: 1px solid #e3e3e3;
+		margin-bottom: 6px;
+		padding-bottom: 5px;
+		color: $thirdlyColor;
+	}
+	&__rights{
+		float: left;
+		margin:0 26px 0 0;
+		letter-spacing: -0.1px;
+		line-height: 1.5;
+		font-size: 12px;
+		color: $thirdlyColor;
+	}
+	&__link{
+		color: #08c;
+		&:hover{
+			color: $primaryColor;
+		}
+	}
+	&__nav{
+		display: inline-block;
+		vertical-align: middle;
+		float: left;
+		line-height: 1.5;
+	}
+	&__list{
+		margin: 0;
+		padding: 0;
+	}
+	&__elem{
+		list-style: none;
+		float: left;
+	}
+	&__elem:last-child &__nav-link{
+		border-right: none;
+	}
+	&__nav-link{
+		display: block;
+		margin-right: 10px;
+		padding-right: 12px;
+		border-right: 1px solid #d6d6d6;
+		font-size: 12px;
+		letter-spacing: 0.1px;
+		color: $secondaryColor;
+		&:hover,
+		&:focus{
+			outline: 0;
+			color: $primaryColor;
+			transition: background-color ease-out 0s;
+		}
+	}
+
+	&__country{
+		float: right;
+		font-size: 12px;
+		color: $secondaryColor;
+		&:before{
+			content: "";
+			background: transparent url('../images/icons/usa_flag.png')0 0 no-repeat;
+			display: inline-block;
+			vertical-align: middle;
+			margin-right: 3px;
+			width: 17px;
+			height: 17px;
+		}
+		&:hover{
+			color: $primaryColor;
+		}
+	}
+}

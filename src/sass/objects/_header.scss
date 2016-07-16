@@ -1,0 +1,241 @@
+.header{
+	box-shadow: 0 1px 0 rgba(0,0,0,0.1);
+	font-family: $primaryFont;
+}
+.logo{
+	display: inline-block;
+	vertical-align: middle;
+	&__media{
+		width: 108px;
+		height: 23px;
+	}
+}
+
+.nav{
+	display: inline-block;
+	vertical-align: middle;
+	&__list{
+		margin: 0;
+		padding: 0;
+	}
+	&__elem{
+		list-style: none;
+		float: left;
+		position: relative;
+	}
+	&__link{
+		display: block;
+		color: #2F2F2F;
+		padding: 0 1.5em;
+		line-height: 48px;
+		transition: background-color ease-out .5s;
+		&:hover,
+		&:focus,
+		&.active{
+			outline: 0;
+			color: #2F2F2F;
+			text-decoration: none;
+			background-color: #f2f2f2;
+			transition: background-color ease-out 0s;
+		}
+		&--dropdown:after{
+			content:"\e93a";
+			font-family: 'icomoon' !important;
+			speak: none;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			line-height: 1;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			vertical-align: middle;
+			font-size: 7px;
+			margin-left: 3px;
+		}
+	}
+}
+.form-search{
+	float: right;
+	position: relative;
+	margin: 7px 5px 0 0;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0 5px 0 0;
+	border: 1px solid #A9A9A9;
+	&__input{
+		width: 244px;
+		padding: 0 10px;
+		height: 36px;
+		color: #000;
+		border: none;
+		&:focus{
+			outline: 0;
+		}
+	}
+	&__input::-webkit-input-placeholder       {color: #2F2F35;}
+	&__input::-moz-placeholder                {color: #2F2F35;}
+	&__input:-moz-placeholder                 {color: #2F2F35;}
+	&__input:-ms-input-placeholder            {color: #2F2F35;}
+	&__submit-wrap{
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		display: inline-block;
+
+		&:hover .form-search__icon{
+			color: #1776C7;
+		}
+	}
+	&__icon{
+		position: absolute;
+		display: inline-block;
+		top:50%;
+		right: 50%;
+		font-size: 17px;
+		margin-top: -8px;
+		margin-right: 8px;
+		color: #7f7f7f;
+		transition: color ease-out .25s;
+	}
+	&__submit{
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: 30px;
+		background: none;
+		border: none;
+		&:focus{
+			outline: 0;
+		}
+	}
+}
+.cart{
+	float: right;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0 10px;
+	line-height: 48px;
+	&:hover,
+	&:focus{
+		color: #0078d7;
+		text-decoration: none;
+		background-color: #f2f2f2;
+	}
+	&__icon{
+		font-size: 17px;
+		color: #7f7f7f;
+		vertical-align: middle;
+	}
+	&__amount{
+		color: #2F2F2F;
+		display: inline-block;
+		vertical-align: middle;
+		font-size: 12px;
+		margin-left: 3px;
+	}
+}
+.auth{
+	float: right;
+	color: #000;
+	line-height: 48px;
+	padding: 0 10px;
+	max-width: 160px;
+	display: inline-block;
+	vertical-align: top;
+	color: #505050;
+	&:hover,
+	&:focus{
+		color: #0078d7;
+		text-decoration: none;
+		background-color: #f2f2f2;
+	}
+}
+
+.dropdown{
+	position: absolute;
+	z-index: 100;
+	top: 100%;
+	left: 0;
+	width: auto;
+	padding: 0 0 8px;
+	background: #f2f2f2;
+	border-left: 1px solid rgba(0,0,0,0.05);
+	border-bottom: 1px solid rgba(0,0,0,0.3);
+	border-right: 1px solid rgba(0,0,0,0.1);
+	display: none;
+	&__title{
+		width: 239px;
+	}
+	&__title-link{
+		display: block;
+		font-size: 15px;
+		padding: 17px 24px;
+		line-height: 20px;
+		color: #2F2F2F;
+		cursor: default;
+		font-weight: normal;
+		transition: background-color ease-out .5s;
+		&:hover,
+		&:focus{
+			background-color: #e5e5e5;
+			text-decoration: none;
+			color: #2F2F2F;
+			outline: 0;
+			transition: background-color 0s;
+		}
+	}
+	&__definition-list{
+		margin-bottom: 0;
+	}
+	&__definition{
+		display: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		position: absolute;
+		width: 300px;
+		left: 239px;
+		top:0;
+		z-index: 2;
+		border-bottom: 1px solid rgba(0,0,0,0.3);
+		border-right: 1px solid rgba(0,0,0,0.1);
+	}
+	&__icon{
+		transform: rotate(-90deg);
+		display: inline-block;
+		vertical-align: middle;
+		font-size: 6px;
+		float: right;
+		margin: 7px 3px;
+	}
+	&__list{
+		background-color: #e5e5e5;
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		width: 100%;
+		padding-bottom: 8px;
+		float: left;
+	}
+	&__item{
+		list-style: none;
+	}
+	&__link{
+		font-size: 15px;
+		padding: 17px 24px;
+		line-height: 20px;
+		display: block;
+		color: #2F2F2F;
+		transition: background-color ease-out .5s;
+		&:hover,
+		&:focus{
+			color: #2F2F2F;
+			background-color: #d9d9d9;
+			transition: background-color 0s;
+		}
+	}
+}

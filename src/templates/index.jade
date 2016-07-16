@@ -1,0 +1,18 @@
+doctype html
+html
+	head
+		- var page_name = "Temp"
+		include ./includes/head.jade
+
+	body
+		include ./includes/header.jade
+
+		main
+			//banner section
+			include ./components/banner.jade
+			//subscription section
+			include ./components/sign-up.jade
+			//propositions section
+			include ./components/propositions.jade
+
+		include ./includes/footer.jade

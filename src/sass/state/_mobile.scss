@@ -1,0 +1,200 @@
+@media (min-width: 768px) {
+	.webp{
+		.banner{
+			&__bg{
+				background: #f7f7f7 url('../images/components/background_pc.webp')right center no-repeat;
+			}
+		}
+	}
+	.no-webp{
+		.banner{
+			&__bg{
+				background: #f7f7f7 url('../images/components/background_pc.jpg')right center no-repeat;
+			}
+		}
+	}
+
+}
+@media screen and (min-width: 400px) and (max-width: 768px) {
+	.webp{
+		.banner{
+			&__bg{
+				background: #f7f7f7 url('../images/components/background_pc--half.webp')right center no-repeat;
+				background-size: contain;
+			}
+		}
+	}
+	.no-webp{
+		.banner{
+			&__bg{
+				background: #f7f7f7 url('../images/components/background_pc--half.jpg')right center no-repeat;
+				background-size: contain;
+			}
+		}
+	}
+	.banner{
+		&__bg{
+			left: 0;
+			width: 100%;
+			margin-left: 0;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.sign-up{
+		padding: 100px 0 85px;
+		&__fieldset{
+			width: 100%;
+			margin: 0;
+		}
+		&__fieldset:not(:last-child){
+			margin-bottom: 20px;
+		}
+		&__form{
+			padding: 0 50px;
+		}
+	}
+	.column{
+		width: 100%;
+		&__section{
+			position: relative;
+			border-bottom: 1px solid #e3e3e3;
+			overflow: hidden;
+		}
+		&__subtitle{
+			position: relative;
+			z-index: 2;
+			margin-bottom: 0;
+			font-weight: normal;
+			line-height: 2.78571;
+			background-color: #f2f2f2;
+			font-size: 14px;
+			cursor: pointer;
+			user-select: none;
+			&:hover{
+				color: #000;
+			}
+			&:after{
+				content: '+';
+				float: right;
+				font-weight: normal;
+				margin-right: 8px;
+				transition: transform .3s ease;
+			}
+		}
+		&__subtitle.active{
+			font-weight: 600;
+			&:after{
+				transform: rotate(45deg) scale(1.08);
+			}
+		}
+		&__item{
+			outline-offset: -6px;
+			padding: 0 14px;
+			line-height: 2;
+		}
+		&__link{
+			display: inline-block;
+			width: 100%;
+		}
+		&__list{
+			position: absolute;
+			z-index: 1;
+			visibility: hidden;
+			margin-right: 0;
+			padding-bottom: 19px;
+			transform: translateY(-100px);
+			transition: transform 300ms ease;
+			&.active{
+				visibility: visible;
+				position: static;
+				transform: translateY(0px);
+			}
+		}
+		&__section ~ &__section{
+			padding-top: 0;
+		}
+	}
+	.basement{
+		&__headline{
+			border-bottom: none;
+		}
+		&__rights{
+			float: none;
+		}
+		&__country{
+			float: none;
+			margin-bottom: 14px;
+			display: inline-block;
+		}
+		&__nav{
+			line-height: 1.7;
+		}
+	}
+	.banner{
+		&__wrapper{
+			padding: 45px 20px;
+			min-height: 460px;
+		}
+		&__title{
+			font-size: 26px;
+		}
+		&__subtitle{
+			padding-bottom: 26px;
+		}
+		&__purchase{
+			display: block;
+			text-align: center;
+		}
+		&__container{
+			padding-right: 20px;
+		}
+	}
+}
+
+@media (max-width: 640px) {
+	.webp .banner,
+	.no-webp .banner{
+		&__bg{
+			background-position: 300px center;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.sign-up{
+		&__title{
+			font-size: 24px;
+		}
+		&__fieldset{
+			width: 100%;
+			margin: 0;
+		}
+		&__fieldset:not(:last-child){
+			margin-bottom: 20px;
+		}
+		&__form{
+			padding: 0 20px;
+		}
+		&__btn{
+			width: 100%;
+			display: block;
+		}
+		&__submit{
+			width: 100%;
+		}
+	}
+}
+
+@media (max-width: 400px) {
+	.banner{
+		text-align: center;
+		&__subtitle{
+			max-width: none;
+		}
+		&__subtitle{
+			max-width: none;
+		}
+	}
+}
