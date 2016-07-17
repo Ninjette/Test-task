@@ -2,13 +2,11 @@ $(document).ready(function(){
 
 	//HEADER
 
-	var preventAction = true,
-		bodyTag = $('body'),
+	var bodyTag = $('body'),
 		htmlTag = $('html'),
 		dropdown = $(".dropdown"),
 		dropdownDefinitionList = dropdown.children('.dropdown__definition-list'),
 		dropdownTitle = dropdownDefinitionList.children('.dropdown__title'),
-		dropdownTitleLink = dropdownDefinitionList.find('.dropdown__title-link'), // do I need this string?
 		dropdownDefinition = dropdownDefinitionList.find('.dropdown__definition'),
 		nav = $('.nav'),
 		linkDropdown = nav.find('.nav__link--dropdown'),
@@ -45,38 +43,6 @@ $(document).ready(function(){
 			title.parent().find(dropdownDefinition).slideUp(250).removeClass('active');
 		}
 	}
-	// dropdownDefinitionList.on("mouseover", function(event){
-	// 	// preventAction = true;
-	// 	// if(preventAction){
-	// 		// event.preventDefault();
-	// 		showDropdownDefinition($(this));
-	// 	// };
-	// });
-
-	// $('.dropdown__link').on('click', function(){
-		//disable event.preventDefault() which was created on higher level
-		// preventAction = false;
-	// });
-
-
-
-	//make height of dropdowns columns equal
-	// dropdownTitle.on('mouseover' , function(){
-	// 	var heightOfDefinition = $(this).siblings(dropdownDefinition).height(),
-	// 		parentDropdown =     $(this).parent().parent();
-
-	// 	if (parentDropdown.height() < heightOfDefinition){
-	// 		parentDropdown.height(heightOfDefinition-8); // 8px = padding of dropdown
-	// 	}
-	// 	else{
-	// 		parentDropdown.css('height','auto');
-	// 	}
-	// });
-
-
-
-
-
 
 	closeDropdown = function(link){
 		bodyTag.on('click',function(event){
@@ -134,8 +100,7 @@ $(document).ready(function(){
 			parentDropdown.css('height','auto');
 		}
 	};
-	slideToggeDropdownDefinition = function(event){
-		event.preventDefault();
+	slideToggeDropdownDefinition = function(){
 		toggleDropdownDefinition($(this));
 	};
 
@@ -193,35 +158,3 @@ $(document).ready(function(){
 	});
 
 });
-
-
-
-
-
-
-
-
-// Example preventDefault();
-
-// window.preventAction = true;
-
-// $(document).keypress(function(e){
-// 	if(e.keyCode==40 || e.keyCode==38){
-// 		if (window.preventAction) e.preventDefault();
-// 	};
-
-// 	$('#img2').click(function(e){
-// 		window.preventAction = false;
-// 	});
-
-// }
-
-//- stack overflow disable jQuery's preventDefault for children
-
-
-
-
-
-
-
-

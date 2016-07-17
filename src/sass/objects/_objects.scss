@@ -123,8 +123,42 @@
 		border-radius: 3px;
 		padding: 18px 15px 18px 50px;
 		margin-right: 10px;
+		&.placeholder{
+			color: #8a959e;
+			transition: opacity .35s ease-out;
+		}
+
+		&:-moz-placeholder{
+			color: #8a959e;
+			transition: opacity .35s ease-out;
+		}
+		  
+		&::-webkit-input-placeholder{
+			color: #8a959e;
+			transition: opacity .35s ease-out;
+		}
+
+		&:-ms-input-placeholder{
+			color: #8a959e;
+			transition: opacity .35s ease-out;
+		}
 		&:focus{
 			outline: none;
+			&.placeholder{
+				opacity: 0.5;
+			}
+
+			&:-moz-placeholder{
+				opacity: 0.5;
+			}
+			  
+			&::-webkit-input-placeholder{
+				opacity: 0.5;
+			}
+
+			&:-ms-input-placeholder{
+				opacity: 0.5;
+			}
 		}
 	}
 	&__btn{

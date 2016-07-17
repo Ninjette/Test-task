@@ -2300,8 +2300,36 @@ body {
             border-radius: 3px;
     padding: 18px 15px 18px 50px;
     margin-right: 10px; }
+    .sign-up__input.placeholder {
+      color: #8a959e;
+      -webkit-transition: opacity .35s ease-out;
+      -o-transition: opacity .35s ease-out;
+      transition: opacity .35s ease-out; }
+    .sign-up__input:-moz-placeholder {
+      color: #8a959e;
+      -webkit-transition: opacity .35s ease-out;
+      -o-transition: opacity .35s ease-out;
+      transition: opacity .35s ease-out; }
+    .sign-up__input::-webkit-input-placeholder {
+      color: #8a959e;
+      -webkit-transition: opacity .35s ease-out;
+      -o-transition: opacity .35s ease-out;
+      transition: opacity .35s ease-out; }
+    .sign-up__input:-ms-input-placeholder {
+      color: #8a959e;
+      -webkit-transition: opacity .35s ease-out;
+      -o-transition: opacity .35s ease-out;
+      transition: opacity .35s ease-out; }
     .sign-up__input:focus {
       outline: none; }
+      .sign-up__input:focus.placeholder {
+        opacity: 0.5; }
+      .sign-up__input:focus:-moz-placeholder {
+        opacity: 0.5; }
+      .sign-up__input:focus::-webkit-input-placeholder {
+        opacity: 0.5; }
+      .sign-up__input:focus:-ms-input-placeholder {
+        opacity: 0.5; }
   .sign-up__btn {
     display: inline-block; }
   .sign-up__submit {
