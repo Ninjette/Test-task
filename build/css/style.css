@@ -2635,7 +2635,8 @@ body {
     .dropdown__title {
       width: 100%; }
     .dropdown__definition {
-      position: static; }
+      position: static;
+      width: 100%; }
     .dropdown__icon {
       -webkit-transform: rotate(0);
           -ms-transform: rotate(0);

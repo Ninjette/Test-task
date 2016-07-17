@@ -11,7 +11,8 @@ $(document).ready(function(){
 		dropdownTitleLink = dropdownDefinitionList.find('.dropdown__title-link'), // do I need this string?
 		dropdownDefinition = dropdownDefinitionList.find('.dropdown__definition'),
 		nav = $('.nav'),
-		linkDropdown = $('.nav__link--dropdown'), //optimize
+		linkDropdown = nav.find('.nav__link--dropdown'),
+		navIcon = $('.nav-icon'),
 		dropdownHight;
 
 	//slideToggle dropdown
@@ -79,27 +80,27 @@ $(document).ready(function(){
 
 	closeDropdown = function(link){
 		bodyTag.on('click',function(event){
-			if($(link).hasClass('active')&& !$(event.target).closest(".dropdown").length && !$(event.target).closest(link).length){
-				$(link).removeClass('active').siblings(dropdown).slideUp(180) //$("link") optimize
+			if(link.hasClass('active')&& !$(event.target).closest(".dropdown").length && !$(event.target).closest(link).length){
+				link.removeClass('active').siblings(dropdown).slideUp(180);
 				dropdownDefinition.css('display','none');
 			}
 		})
 	};
 
-	linksArray = ['.nav__link--primary','.nav__link--secondary'];
+	linksArray = [$('.nav__link--primary'),$('.nav__link--secondary')];
 	for (var i = 0; i < linksArray.length; i++) {
 		closeDropdown(linksArray[i]);
 	};
-	//  body.on('click',function(event){
-	// 	if($(event.target) == $('.banner__title')){
-	// 		console.log('this banner__title');
-	// 	}
-	// });
-	$('.nav-icon')
+
+	linksRemoveClass = function(){
+		for (var i = 0; i < linksArray.length; i++) {
+			linksArray[i].removeClass('active');
+		};
+	}
+
 	bodyTag.on('click',function(event){
-		if(nav.hasClass('active') && !$(event.target).closest(".nav-icon").length && !$(event.target).closest(nav).length){
-			nav.removeClass('active');
-			htmlTag.removeClass('overflow-hidden');
+		if(nav.hasClass('active') && !$(event.target).closest(navIcon).length && !$(event.target).closest(nav).length){
+			navClose();
 		};
 	});
 
@@ -110,39 +111,20 @@ $(document).ready(function(){
 	});
 	
 	//nav toggle
-	$('.nav-icon').on('click', function(){
-		$(this).toggleClass('open');
-		$('.nav').toggleClass('active');
+	navToggle = function(){
+		navIcon.toggleClass('open');
+		nav.toggleClass('active');
 		htmlTag.toggleClass('overflow-hidden');
-	});
-
-
-	//FOOTER
-	$('.column__subtitle').on('click', function(){
-		$(this).toggleClass('active');
-		$(this).siblings('.column__list').toggleClass('active');
-	});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	//working space
+	}
+	navClose = function(){
+		navIcon.removeClass('open');
+		nav.removeClass('active');
+		htmlTag.removeClass('overflow-hidden');
+	}
+	navIcon.on('click', navToggle);
 
 	//make height of dropdowns columns equal
 	makeHeightEqual = function(){
-		console.log('make');
 		var heightOfDefinition =   $(this).siblings(dropdownDefinition).height(),
 			parentDropdown = $(this).parent().parent();
 		if (dropdownHight < heightOfDefinition){
@@ -155,140 +137,61 @@ $(document).ready(function(){
 	slideToggeDropdownDefinition = function(event){
 		event.preventDefault();
 		toggleDropdownDefinition($(this));
-		console.log('slideToggeDropdownDefinition')
 	};
-	testFunc = function(){
-		
-		console.log('testFunc');
-	}
 
-	var destroyedDesktopFunctions;
-	var destroyedMobileFunctions;
-	var firstInit = true;
+	//actions on window resize
+	var destroyedDesktopFunctions,
+		destroyedMobileFunctions,
+		firstInit = true;
 
+	var timeoutVar;
 	$(window).on('resize', function(){
-
-
-		if($(window).width() < 768){
-			//
-			bodyTag
-				.on( "click", "#theone", flash )
-				.find( "#theone" )
-				.text( "Can Click!" );
-			// bodyTag
-
-			//
-			console.log(destroyedDesktopFunctions);
-			if(firstInit){
-				console.log('if firstInit < 768');
-
-
-
-				bodyTag.on("click", '.dropdown__title', slideToggeDropdownDefinition);
-				firstInit = false;
-
-
-
-
+		clearTimeout(timeoutVar);
+		timeoutVar = setTimeout(doneResizing, 100); // to prevent overwork on resize
+		function doneResizing(){
+			if($(window).width() < 768){
+				if(firstInit){
+					bodyTag.on("click", '.dropdown__title', slideToggeDropdownDefinition);
+					firstInit = false;
+				}
+				else if(!destroyedDesktopFunctions) {
+					dropdown.css('display','none');
+					linksRemoveClass();
+					bodyTag.off("mouseover", '.dropdown__definition-list', showDropdownDefinition);
+					bodyTag.off("mouseover", '.dropdown__title', makeHeightEqual);
+					bodyTag.on("click", '.dropdown__title', slideToggeDropdownDefinition);
+					destroyedDesktopFunctions = true;
+					destroyedMobileFunctions = false;
+				};
 			}
-			else if (!destroyedDesktopFunctions) {
-				console.log('main < 768');
-				// console.log('switcher = true');
-				//---------------------------------
-				// dropdownTitle.off('mouseover');
-				// dropdownDefinitionList.off('mouseover');
-
-
-
-				bodyTag.off("mouseover", '.dropdown__definition-list', showDropdownDefinition);
-				bodyTag.off("mouseover", '.dropdown__title', makeHeightEqual);
-				bodyTag.on("click", '.dropdown__title', slideToggeDropdownDefinition);
-				destroyedDesktopFunctions = true;
-				destroyedMobileFunctions = false;
-
-
-
-
-
-
-
-				// dropdownTitle.on("click", function(event){
-				// 	event.preventDefault();
-				// 	toggleDropdownDefinition($(this));
-				// });
-			};
-		}
-		else if($(window).width() >= 768){
-			// btnFunc = function(){
-			// 	console.log('here is btn on!');
-			// };
-			// bodyTag.on('click', '.test-btn', btnFunc);// delete this
-			// $('.banner__title').on('click', function(){
-			// 	bodyTag.off('click', '.test-btn', btnFunc);
-			// });
-			//
-			bodyTag
-				.off( "click", "#theone", flash )
-				.find( "#theone" )
-				.text( "Does nothing..." );
-			//
-
-
-			if(firstInit){
-				console.log('if firstInit > 768');
-
-
-
-				bodyTag.on("mouseover", '.dropdown__title', makeHeightEqual);
-				bodyTag.on("mouseover", '.dropdown__definition-list', showDropdownDefinition);
-				firstInit = false;
-
-
+			else if($(window).width() >= 768){
+				if(firstInit){
+					bodyTag.on("mouseover", '.dropdown__title', makeHeightEqual);
+					bodyTag.on("mouseover", '.dropdown__definition-list', showDropdownDefinition);
+					firstInit = false;
+				}
+				else if(!destroyedMobileFunctions) {
+					navClose();
+					dropdown.css('display','none');
+					linksRemoveClass();
+					bodyTag.off("click", '.dropdown__title', slideToggeDropdownDefinition);
+					bodyTag.on("mouseover", '.dropdown__definition-list', showDropdownDefinition);
+					bodyTag.on("mouseover", '.dropdown__title', makeHeightEqual);
+					destroyedMobileFunctions = true;
+					destroyedDesktopFunctions = false;
+				};
 			}
-			else if (!destroyedMobileFunctions) {
-				console.log('main > 768');
-				//---------------------------------
-				
-				bodyTag.off("click", '.dropdown__title', slideToggeDropdownDefinition);
-				bodyTag.on("mouseover", '.dropdown__definition-list', showDropdownDefinition);
-				// dropdownDefinitionList.on("mouseover", function(event){
-				// 	showDropdownDefinition($(this));
-				// });
-				
-				bodyTag.on("mouseover", '.dropdown__title', makeHeightEqual);
-
-
-
-
-
-
-				// dropdownTitle.on('mouseover' , makeHeightEqual);
-				destroyedMobileFunctions = true;
-				destroyedDesktopFunctions = false;
-				console.log(destroyedDesktopFunctions);
-			};
 		}
-
 	});
 	$(window).resize();
 
 
-	//test code 
-	function flash() {
-		$( ".div" ).show().fadeOut( "slow" );
-	}
-	$( "#bind" ).click(function() {
-		// $( "body" )
-		// 	.on( "click", "#theone", flash )
-		// 	.find( "#theone" )
-		// 	.text( "Can Click!" );
+	//FOOTER
+	$('.column__subtitle').on('click', function(){
+		$(this).toggleClass('active');
+		$(this).siblings('.column__list').toggleClass('active');
 	});
-	$( "#unbind" ).click(function() {
-		// $( "body" )
-		// 	.off( "click", "#theone", flash )
-		// 	.find( "#theone" )
-		// 	.text( "Does nothing..." );
-	});
+
 });
 
 
