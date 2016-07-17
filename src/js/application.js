@@ -152,6 +152,7 @@ $(document).ready(function(){
 
 
 	//FOOTER
+
 	$('.column__subtitle').on('click', function(){
 		$(this).toggleClass('active');
 		$(this).siblings('.column__list').toggleClass('active');
