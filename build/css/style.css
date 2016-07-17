@@ -2288,7 +2288,11 @@ body {
     font-size: 22px;
     color: #C4CACE;
     position: absolute;
-    top: 18px;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+         -o-transform: translate(0, -50%);
+            transform: translate(0, -50%);
     left: 15px; }
   .sign-up__input {
     width: 278px;
