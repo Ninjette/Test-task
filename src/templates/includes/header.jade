@@ -2,7 +2,13 @@
 header.header
 	.header__wrap.clearfix
 		a(href="#").logo
-			img(src="images/components/microsoft_logo.png", alt="logo").logo__media
+			div
+				img(src="images/components/microsoft_logo.png", alt="logo").logo__media
+				button#theone Does nothing...
+				button#bind Add Click
+				button#unbind Remove Click
+				div.div(style='display:none;') Click!
+
 		nav.nav
 			ul.nav__list
 				li.nav__elem
@@ -10,7 +16,7 @@ header.header
 					.dropdown
 						dl.dropdown__definition-list
 							dt.dropdown__title
-								a(href="/first-level").dropdown__title-link Software & services
+								a(href="#").dropdown__title-link Software & services
 									i.dropdown__icon.icon-down-button
 								dd.dropdown__definition
 									ul.dropdown__list
@@ -125,7 +131,7 @@ header.header
 								dd.dropdown__definition
 									ul.dropdown__list
 										li.dropdown__item
-											a(href="/second-level").dropdown__link Windows
+											a(href="#").dropdown__link Windows
 										li.dropdown__item
 											a(href="#").dropdown__link Office
 										li.dropdown__item

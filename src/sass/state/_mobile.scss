@@ -107,7 +107,8 @@
 		left: 50%;
 	}
 	.nav{
-		display: none;
+		display: block;
+		width: 0;
 		position: absolute;
 		margin-top: 48px;
 		right: 0;
@@ -117,21 +118,27 @@
 		max-width: 300px;
 		height: 100%;
 		margin-top: 0;
-		height: calc(100% - 50px);
+		height: calc(100% - 48px);
 		background-color: #f2f2f2;
 		&__list{
 			height: 100%;
+			overflow: auto;
 		}
 		&.active{
-			// display: block;
-			// height: calc(100% - 48px);
 			width: 80%;
+			transition: width 0s;
 		}
 		&__elem{
 			float: none;
 		}
+		&__link--dropdown:after{
+			font-size: 6px;
+			float: right;
+			margin: 21px 3px;
+		}
 	}
 	.dropdown{
+		padding-bottom: 0;
 		position: static;
 		background-color: #e5e5e5;
 		&__title{
@@ -142,6 +149,9 @@
 		}
 		&__icon{
 			transform: rotate(0);
+		}
+		&__list{
+			background-color: #d9d9d9;
 		}
 	}
 	.sign-up{

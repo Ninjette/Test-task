@@ -186,6 +186,7 @@
 	border-bottom: 1px solid rgba(0,0,0,0.3);
 	border-right: 1px solid rgba(0,0,0,0.1);
 	display: none;
+
 	&__title{
 		width: 239px;
 	}
@@ -225,8 +226,6 @@
 	}
 	&__icon{
 		transform: rotate(-90deg);
-		display: inline-block;
-		vertical-align: middle;
 		font-size: 6px;
 		float: right;
 		margin: 7px 3px;
