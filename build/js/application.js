@@ -199,8 +199,9 @@ $(document).ready(function(){
 	}
 
 	input.on('blur', checkVal)
-	input.on('focus', removeClassUntouched)
-	input.on('keyup', checkVal)
+		 .on('keyup', checkVal)
+		 .on('focus', removeClassUntouched);
+	
 	form.submit(function(event){
 		if (input.parent().hasClass('warning') || input.parent().hasClass('untouched')){
 			event.preventDefault();
