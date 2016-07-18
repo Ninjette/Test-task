@@ -83,6 +83,8 @@
 
 /* sign-up */
 .sign-up{
+	position: relative;
+	overflow: hidden;
 	padding: 160px 0 145px;
 	text-align: center;
 	background: #323a45;
@@ -107,6 +109,9 @@
 		position: relative;
 		float: left;
 	}
+	&__label{
+		display: none;
+	}
 	&__icon{
 		font-size: 22px;
 		color: #C4CACE;
@@ -124,6 +129,7 @@
 		border-radius: 3px;
 		padding: 18px 15px 18px 50px;
 		margin-right: 10px;
+		transition: box-shadow .25s ease-out, border-color .25s ease-out;
 		&.placeholder{
 			color: #8a959e;
 			transition: opacity .35s ease-out;

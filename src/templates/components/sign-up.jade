@@ -1,17 +1,18 @@
 section.sign-up
 	h2.sign-up__title Join over 2 million designers already using InVision. Get InVision free forever!
-	form(action="").sign-up__form.clearfix
+	form(action="", method="POST").sign-up__form.clearfix
 		.sign-up__fieldsets
-			fieldset.sign-up__fieldset
+			fieldset.sign-up__fieldset.untouched
 				i.sign-up__icon.icon-avatar
 				input(type="text", name="name", placeholder="Your Name").sign-up__input
-			fieldset.sign-up__fieldset
+			fieldset.sign-up__fieldset.untouched
 				i.sign-up__icon.icon-mail
 				input(type="text", name="email", placeholder="Email Address").sign-up__input
-			fieldset.sign-up__fieldset
+			fieldset.sign-up__fieldset.untouched
 				i.sign-up__icon.icon-lock
 				input(type="password", name='password', placeholder="Create a Password").sign-up__input
 		.sign-up__btn
 			input(type="submit", value="Get Started — Free Forever!").sign-up__submit
+		.success-window Success!
 	p.sign-up__terms By clicking "Get Started — Free Forever!" I agree to InVision's 
 		a(href="#").sign-up__link Terms of Service.

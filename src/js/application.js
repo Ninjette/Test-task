@@ -2,15 +2,15 @@ $(document).ready(function(){
 
 	//HEADER
 
-	var bodyTag = $('body'),
-		htmlTag = $('html'),
-		dropdown = $(".dropdown"),
-		dropdownDefinitionList = dropdown.children('.dropdown__definition-list'),
-		dropdownTitle = dropdownDefinitionList.children('.dropdown__title'),
-		dropdownDefinition = dropdownDefinitionList.find('.dropdown__definition'),
-		nav = $('.nav'),
-		linkDropdown = nav.find('.nav__link--dropdown'),
-		navIcon = $('.nav-icon'),
+	var bodyTag                 = $('body'),
+		htmlTag                 = $('html'),
+		dropdown                = $(".dropdown"),
+		dropdownDefinitionList  = dropdown.children('.dropdown__definition-list'),
+		dropdownTitle           = dropdownDefinitionList.children('.dropdown__title'),
+		dropdownDefinition      = dropdownDefinitionList.find('.dropdown__definition'),
+		nav                     = $('.nav'),
+		linkDropdown            = nav.find('.nav__link--dropdown'),
+		navIcon                 = $('.nav-icon'),
 		dropdownHight;
 
 	//slideToggle dropdown
@@ -151,8 +151,77 @@ $(document).ready(function(){
 	$(window).resize();
 
 
-	//FOOTER
+	//SIGN-UP
+	var form           = $(".sign-up__form"),
+		input          = form.find('.sign-up__input'),
+		inputName      = form.find('.sign-up__input[name="name"]'),
+		inputEmail     = form.find('.sign-up__input[name="email"]'),
+		inputPassword  = form.find('.sign-up__input[name="password"]');
+		regExpEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
+	removeClassUntouched = function(){
+		$(this).parent().removeClass('untouched');
+	}
+	removeWarning = function(selector){
+		selector.parent().removeClass('warning');
+	};
+	addWarning = function(selector){
+		selector.parent().addClass('warning');
+	}
+	checkVal = function(){
+		// for input name
+		if($(this).is(inputName)){
+			if ($(this).val().length < 1) {
+				addWarning($(this))
+			}
+			else{
+				removeWarning($(this))
+			}
+		}
+		// for input email
+		else if($(this).is(inputEmail)){
+			if (regExpEmail.test($(this).val())){
+				removeWarning($(this))
+			}
+			else{
+				addWarning($(this))
+			}
+		}
+		// for input password
+		else{
+			if($(this).val().length < 3){
+				addWarning($(this))
+			}
+			else{
+				removeWarning($(this))
+			}
+		}
+	}
+
+	input.on('blur', checkVal)
+	input.on('focus', removeClassUntouched)
+	input.on('keyup', checkVal)
+	form.submit(function(event){
+		if (input.parent().hasClass('warning') || input.parent().hasClass('untouched')){
+			event.preventDefault();
+			$('.untouched').addClass('warning');
+		}
+		else{
+			$.ajax({
+				type: "GET",
+				url: "",
+				data: form.serialize()
+			}).done(function() {
+				$('.success-window').fadeIn();
+				setTimeout(function() {
+					$('.success-window').fadeOut();
+				}, 2000);
+			});
+			return false;
+		};
+	});
+
+	//FOOTER
 	$('.column__subtitle').on('click', function(){
 		$(this).toggleClass('active');
 		$(this).siblings('.column__list').toggleClass('active');

@@ -2263,6 +2263,8 @@ body {
 
 /* sign-up */
 .sign-up {
+  position: relative;
+  overflow: hidden;
   padding: 160px 0 145px;
   text-align: center;
   background: #323a45; }
@@ -2283,6 +2285,8 @@ body {
   .sign-up__fieldset {
     position: relative;
     float: left; }
+  .sign-up__label {
+    display: none; }
   .sign-up__icon {
     font-size: 22px;
     color: #C4CACE;
@@ -2302,7 +2306,12 @@ body {
     -webkit-border-radius: 3px;
             border-radius: 3px;
     padding: 18px 15px 18px 50px;
-    margin-right: 10px; }
+    margin-right: 10px;
+    -webkit-transition: border-color .25s ease-out, -webkit-box-shadow .25s ease-out;
+    transition: border-color .25s ease-out, -webkit-box-shadow .25s ease-out;
+    -o-transition: box-shadow .25s ease-out, border-color .25s ease-out;
+    transition: box-shadow .25s ease-out, border-color .25s ease-out;
+    transition: box-shadow .25s ease-out, border-color .25s ease-out, -webkit-box-shadow .25s ease-out; }
     .sign-up__input.placeholder {
       color: #8a959e;
       -webkit-transition: opacity .35s ease-out;
@@ -2452,6 +2461,30 @@ body {
         -ms-transform: translate(0, -50%);
          -o-transform: translate(0, -50%);
             transform: translate(0, -50%); }
+
+/* sign-up */
+.sign-up__fieldset.warning .sign-up__input {
+  border-color: #ff3366;
+  -webkit-box-shadow: 0 0 0 1px #ff3366;
+          box-shadow: 0 0 0 1px #ff3366; }
+
+.success-window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+  padding: 20px 5px;
+  width: 320px;
+  background-color: #1D954E;
+  color: #fff;
+  font-weight: bold;
+  font-size: 30px;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+       -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-box-shadow: 0 0 19px 6px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 19px 6px rgba(0, 0, 0, 0.2); }
 
 @media (min-width: 1771px) {
   .banner__bg {
@@ -2780,6 +2813,10 @@ body {
     background-position: 300px center; } }
 
 @media (max-width: 480px) {
+  .success-window {
+    padding: 15px 0;
+    font-size: 25px;
+    width: 260px; }
   .form-search__inner-wrap {
     width: 100%; }
   .sign-up__title {

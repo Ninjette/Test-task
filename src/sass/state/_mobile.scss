@@ -276,6 +276,11 @@
 }
 
 @media (max-width: 480px) {
+	.success-window{
+		padding: 15px 0;
+		font-size: 25px;
+		width: 260px;
+	}
 	.form-search{
 		&__inner-wrap{
 			width: 100%;

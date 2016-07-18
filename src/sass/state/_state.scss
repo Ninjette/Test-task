@@ -1,0 +1,25 @@
+/* sign-up */
+.sign-up{
+	&__fieldset{
+		&.warning{
+			.sign-up__input{
+				border-color: #ff3366;
+				box-shadow: 0 0 0 1px #ff3366;
+			}
+		}
+	}
+}
+.success-window{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: none;
+	padding: 20px 5px;
+	width: 320px;
+	background-color: #1D954E;
+	color: #fff;
+	font-weight: bold;
+	font-size: 30px;
+	transform: translate(-50%,-50%);
+	box-shadow: 0 0 19px 6px rgba(0,0,0,0.2);
+}
