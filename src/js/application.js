@@ -16,7 +16,7 @@ $(document).ready(function(){
 	//slideToggle dropdown
 	linkDropdown.on('click', function(){
 		$(this).siblings(dropdown).css('height','auto');
-		dropdownHight = $(this).siblings(dropdown).height();
+		dropdownHight = $(this).siblings(dropdown).height(); //further we will need
 		$(this).siblings(dropdown).slideToggle(180);
 		if(!$(this).hasClass('active')){
 			$(this).addClass('active');
@@ -29,8 +29,8 @@ $(document).ready(function(){
 
 	//for desktop
 	showDropdownDefinition = function(){
-		dropdownDefinition.css('display','none');
-		$(this).children(dropdownDefinition).css('display','block');
+		dropdownDefinition.css('display','none'); //hide old
+		$(this).children(dropdownDefinition).css('display','block');//open new
 	}
 
 	//for mobile
@@ -78,11 +78,13 @@ $(document).ready(function(){
 	
 	//nav toggle
 	navToggle = function(){
+		bodyTag.toggleClass('nav-active');
 		navIcon.toggleClass('open');
 		nav.toggleClass('active');
 		htmlTag.toggleClass('overflow-hidden');
 	}
 	navClose = function(){
+		bodyTag.removeClass('nav-active');
 		navIcon.removeClass('open');
 		nav.removeClass('active');
 		htmlTag.removeClass('overflow-hidden');
